@@ -16,13 +16,13 @@ ifndef LINEAGE_BUILDTYPE
     endif
 endif
 
-# Filter out random types, so it'll reset to UNOFFICIAL
+# Filter out random types, so it switches to SPECIAL
 ifeq ($(filter RELEASE NIGHTLY SNAPSHOT EXPERIMENTAL,$(LINEAGE_BUILDTYPE)),)
-    LINEAGE_BUILDTYPE := UNOFFICIAL
+    LINEAGE_BUILDTYPE := SPECIAL
     LINEAGE_EXTRAVERSION :=
 endif
 
-ifeq ($(LINEAGE_BUILDTYPE), UNOFFICIAL)
+ifeq ($(LINEAGE_BUILDTYPE), SPECIAL)
     ifneq ($(TARGET_UNOFFICIAL_BUILD_ID),)
         LINEAGE_EXTRAVERSION := -$(TARGET_UNOFFICIAL_BUILD_ID)
     endif
