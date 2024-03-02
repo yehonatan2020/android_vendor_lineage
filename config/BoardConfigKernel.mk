@@ -59,6 +59,15 @@
 
 BUILD_TOP := $(abspath .)
 
+
+TARGET_USES_BLUR := true
+TARGET_ENABLE_BLUR := true
+USE_CCACHE := true
+SKIP_ABI_CHECKS := true
+GLOBAL_THINLTO := true
+USE_THINLTO_CACHE := true
+KERNEL_LTO := thin
+
 TARGET_AUTO_KDIR := $(shell echo $(TARGET_DEVICE_DIR) | sed -e 's/^device/kernel/g')
 TARGET_KERNEL_SOURCE ?= $(TARGET_AUTO_KDIR)
 
