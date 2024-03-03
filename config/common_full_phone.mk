@@ -68,3 +68,4 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.camera.ois.disable=0
 
 $(call inherit-product, vendor/lineage/config/telephony.mk)
+$(call inherit-product-if-exists, vendor/gapps/products/gapps.mk)
