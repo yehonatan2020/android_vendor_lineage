@@ -69,3 +69,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 $(call inherit-product, vendor/lineage/config/telephony.mk)
 $(call inherit-product-if-exists, vendor/gapps/products/gapps.mk)
+$(call inherit-product-if-exists, vendor/gms/gms_full.mk)
+$(call inherit-product-if-exists, vendor/pixel-framework/config.mk)
+$(call inherit-product-if-exists, vendor/pixel-style/config/common.mk)
+
