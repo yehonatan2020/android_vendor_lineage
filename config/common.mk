@@ -5,6 +5,9 @@ PRODUCT_BRAND ?= LineageOS
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 
+# Pixel additions
+$(call inherit-product, vendor/pixel-style/config/common.mk)
+
 ifeq ($(PRODUCT_GMS_CLIENTID_BASE),)
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.com.google.clientidbase=android-google
@@ -216,10 +219,8 @@ PRODUCT_DEXPREOPT_SPEED_APPS += \
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     dalvik.vm.systemuicompilerfilter=speed
 
-# SetupWizard
 PRODUCT_PRODUCT_PROPERTIES += \
-    setupwizard.feature.day_night_mode_enabled=true \
-#   setupwizard.theme=glif_v4 \
+    setupwizard.theme=glif_v3_light
 
 PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += vendor/lineage/overlay/no-rro
 PRODUCT_PACKAGE_OVERLAYS += \
