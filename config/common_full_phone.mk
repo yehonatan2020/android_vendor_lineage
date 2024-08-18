@@ -60,3 +60,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.camera.ois.disable=0
 
 $(call inherit-product, vendor/lineage/config/telephony.mk)
+$(call inherit-product, vendor/gms/gms_full.mk)
+$(call inherit-product, vendor/pixel-style/config/common.mk)
+$(call inherit-product, vendor/certification/config.mk)
