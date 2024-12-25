@@ -999,6 +999,35 @@ while true; do
     fi
 done
 
+## LIBRARY CHECK
+# Loop until valid input is received
+while true; do
+    # Display the prompt
+    echo -e "${CYAN}Relax Library check (Y/N)${RESET}"
+
+    # Read user input
+    read response
+
+    # Convert response to uppercase
+    response=$(echo "$response" | tr '[:lower:]' '[:upper:]')
+
+    # Conditionally export the variable
+    if [[ "$response" == "Y" ]]; then
+        export RELAX_USES_LIBRARY_CHECK=true
+        echo -e "${GREEN}Library Check relaxed${RESET}"
+        echo "                                                                  "
+        break
+    elif [[ "$response" == "N" ]]; then
+        export RELAX_USES_LIBRARY_CHECK=false
+        echo -e "${YELLOW}Library Check enforced${RESET}"
+        echo "                                                                  "
+        break
+    else
+        echo -e "${RED}Invalid input. Please enter 'Y' or 'N'${RESET}"
+        echo "                                                                  "
+    fi
+done
+
 #EPPE
 # Loop until valid input is received
 while true; do
