@@ -1018,4 +1018,4 @@ while true; do
 done
     echo "Time to Build!"
     echo "--------------"
-    echo "   
+    echo "                                                                "
