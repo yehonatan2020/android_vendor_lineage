@@ -930,6 +930,46 @@ BLUE='\033[0;34m'
 CYAN='\033[0;36m'
 RESET='\033[0m' # Reset to default color
 
+export BUILD_BROKEN_DISABLE_BAZEL=true
+
+#SCUDO
+export PRODUCT_USE_SCUDO=true
+
+#DUP Rules
+export BUILD_BROKEN_DUP_RULES=true
+
+## LTO THIN
+# Loop until valid input is received
+while true; do
+    # Display the prompt with color
+    clear
+    echo -e "${CYAN}Do you wish to build with LTO Thin? (Y/N)${RESET}"
+
+    # Read user input
+    read response
+
+    # Convert response to uppercase
+    response=$(echo "$response" | tr '[:lower:]' '[:upper:]')
+
+    # Validate response
+    if [[ "$response" == "Y" ]]; then
+        export GLOBAL_THINLTO=true
+        export USE_THINLTO_CACHE=true
+        echo -e "${GREEN}Building with ThinLTO${RESET}"
+        echo "                                                                  "
+        break
+    elif [[ "$response" == "N" ]]; then
+        export GLOBAL_THINLTO=false
+        export USE_THINLTO_CACHE=false
+        echo -e "${YELLOW}Building without ThinLTO${RESET}"
+        echo "                                                                  "
+        break
+    else
+        echo -e "${RED}Invalid input. Please enter 'Y' or 'N'${RESET}"
+        echo "                                                                  "
+    fi
+done
+
 #EPPE
 # Loop until valid input is received
 while true; do
